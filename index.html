@@ -11,15 +11,15 @@
   <div class="app-container">
     <!-- Header -->
     <header class="app-header">
-      <h1 class="app-title">Chương Trình Ôn Học</h1>
-      <p class="app-subtitle">Chọn môn học để bắt đầu luyện tập</p>
+      <h1 id="page-title" class="app-title">Chương Trình Ôn Học</h1>
+      <p id="page-subtitle" class="app-subtitle">Chọn môn học để bắt đầu luyện tập</p>
     </header>
 
-    <!-- Danh sách môn học (Main Stage) -->
-    <main class="course-list">
+    <!-- Main Stage: Nơi hiển thị danh sách môn học HOẶC bài học -->
+    <main id="app-stage" class="course-list">
       
-      <!-- Course Item 1 -->
-      <button class="course-card" onclick="selectCourse('public-speaking')">
+      <!-- Nút chọn môn học 1 -->
+      <button class="course-card" data-course-id="public-speaking">
         <div class="course-icon">🎤</div>
         <div class="course-info">
           <h2 class="course-title">Foundation of Public Speaking</h2>
@@ -28,8 +28,8 @@
         <div class="course-arrow">➔</div>
       </button>
 
-      <!-- Course Item 2 -->
-      <button class="course-card" onclick="selectCourse('reading-2')">
+      <!-- Nút chọn môn học 2 -->
+      <button class="course-card" data-course-id="reading-2">
         <div class="course-icon">📖</div>
         <div class="course-info">
           <h2 class="course-title">Foundation to Reading 2</h2>
@@ -38,8 +38,8 @@
         <div class="course-arrow">➔</div>
       </button>
 
-      <!-- Course Item 3 -->
-      <button class="course-card" onclick="selectCourse('listening-speaking-2')">
+      <!-- Nút chọn môn học 3 -->
+      <button class="course-card" data-course-id="listening-speaking-2">
         <div class="course-icon">🎧</div>
         <div class="course-info">
           <h2 class="course-title">Listening and Speaking 2</h2>
@@ -51,11 +51,7 @@
     </main>
   </div>
 
-  <script>
-    function selectCourse(courseId) {
-      // Hàm xử lý chuyển module học (sẽ kết nối với app.js sau)
-      console.log('Đã chọn môn học:', courseId);
-    }
-  </script>
+  <!-- Nạp file JavaScript chính -->
+  <script src="js/app.js" type="module"></script>
 </body>
 </html>
