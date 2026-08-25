@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luyện Học Tiếng Anh</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <h1 class="app-title">Chương Trình Ôn Học</h1>
+      <p class="app-subtitle">Chọn môn học để bắt đầu luyện tập</p>
+    </header>
+
+    <!-- Danh sách môn học (Main Stage) -->
+    <main class="course-list">
+      
+      <!-- Course Item 1 -->
+      <button class="course-card" onclick="selectCourse('public-speaking')">
+        <div class="course-icon">🎤</div>
+        <div class="course-info">
+          <h2 class="course-title">Foundation of Public Speaking</h2>
+          <p class="course-desc">Rèn luyện kỹ năng thuyết trình & tự tin nói trước đám đông</p>
+        </div>
+        <div class="course-arrow">➔</div>
+      </button>
+
+      <!-- Course Item 2 -->
+      <button class="course-card" onclick="selectCourse('reading-2')">
+        <div class="course-icon">📖</div>
+        <div class="course-info">
+          <h2 class="course-title">Foundation to Reading 2</h2>
+          <p class="course-desc">Củng cố đọc hiểu, từ vựng & cấu trúc ngữ pháp nền tảng</p>
+        </div>
+        <div class="course-arrow">➔</div>
+      </button>
+
+      <!-- Course Item 3 -->
+      <button class="course-card" onclick="selectCourse('listening-speaking-2')">
+        <div class="course-icon">🎧</div>
+        <div class="course-info">
+          <h2 class="course-title">Listening and Speaking 2</h2>
+          <p class="course-desc">Nâng cao phản xạ nghe nói & phát âm giao tiếp</p>
+        </div>
+        <div class="course-arrow">➔</div>
+      </button>
+
+    </main>
+  </div>
+
+  <script>
+    function selectCourse(courseId) {
+      // Hàm xử lý chuyển module học (sẽ kết nối với app.js sau)
+      console.log('Đã chọn môn học:', courseId);
+    }
+  </script>
+</body>
+</html>
