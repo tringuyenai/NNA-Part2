@@ -1,6 +1,3 @@
-Dưới đây là file JSON chuẩn duy nhất chứa đầy đủ **46 câu hỏi** từ tài liệu Public Speaking của bạn. Dữ liệu đã được chia thành 3 Unit theo lộ trình học tập logic và sẵn sàng để nhúng vào ứng dụng:
-
-```json
 {
   "courseId": "public-speaking",
   "courseTitle": "Foundation of Public Speaking",
