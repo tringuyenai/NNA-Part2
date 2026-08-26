@@ -10,6 +10,7 @@ export class QuizModule {
     const q = this.questions[this.currentIndex];
     
     this.container.innerHTML = `
+      <button id="back-units-btn" class="btn-back">← Quay lại danh sách bài học</button>
       <div class="quiz-card">
         <div class="quiz-header">
           <span class="quiz-step">Câu ${this.currentIndex + 1}/${this.questions.length}</span>
@@ -17,8 +18,7 @@ export class QuizModule {
         <h2 class="quiz-question">${q.question}</h2>
         <div class="quiz-options">
           ${q.options.map((opt, idx) => `
-            <button class="option-btn ${this.userAnswers[this.currentIndex] === idx ? 'selected' : ''}" 
-                    data-index="${idx}">
+            <button class="option-btn ${this.userAnswers[this.currentIndex] === idx ? 'selected' : ''}" data-index="${idx}">
               ${opt}
             </button>
           `).join('')}
@@ -26,6 +26,10 @@ export class QuizModule {
         <div id="explanation-box" class="explanation-box hidden">
           <strong>💡 Giải thích:</strong>
           <p>${q.explanation}</p>
+        </div>
+        <div class="quiz-nav" style="margin-top: 20px; display: flex; justify-content: space-between;">
+          <button id="prev-q-btn" class="btn-back" ${this.currentIndex === 0 ? 'disabled' : ''}>Câu trước</button>
+          <button id="next-q-btn" class="btn-back" ${this.currentIndex === this.questions.length - 1 ? 'disabled' : ''}>Câu tiếp ➔</button>
         </div>
       </div>
     `;
@@ -41,6 +45,12 @@ export class QuizModule {
         this.checkAnswer(selectedIdx);
       });
     });
+
+    const prevBtn = this.container.querySelector('#prev-q-btn');
+    const nextBtn = this.container.querySelector('#next-q-btn');
+    
+    if(prevBtn) prevBtn.addEventListener('click', () => this.prevQuestion());
+    if(nextBtn) nextBtn.addEventListener('click', () => this.nextQuestion());
   }
 
   checkAnswer(selectedIdx) {
@@ -49,15 +59,14 @@ export class QuizModule {
 
     const optionBtns = this.container.querySelectorAll('.option-btn');
     optionBtns.forEach((btn, idx) => {
-      btn.disabled = true; // Khóa chọn lại
+      btn.disabled = true;
       if (idx === q.correctAnswer) {
-        btn.classList.add('correct'); // Màu xanh
+        btn.classList.add('correct');
       } else if (idx === selectedIdx) {
-        btn.classList.add('wrong'); // Màu đỏ
+        btn.classList.add('wrong');
       }
     });
 
-    // Hiện hộp giải thích
     const expBox = this.container.querySelector('#explanation-box');
     if (expBox) expBox.classList.remove('hidden');
   }
